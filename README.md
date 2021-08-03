@@ -1,2 +1,2 @@
 # paddle.ctpn
-ctpn复现
+PaddlePaddle 复现 Detecting Text in Natural Image with Connectionist Text Proposal Network
