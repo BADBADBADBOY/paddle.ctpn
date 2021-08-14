@@ -14,7 +14,7 @@ PaddlePaddle 复现 Detecting Text in Natural Image with Connectionist Text Prop
 
 ### 写在前面
 
-这里需要建4个文件夹：result,pre_gt,pre_model,model_save
+根目录需要建4个文件夹：result, pre_gt, pre_model, model_save 用来放验证时结果图片，验证结果txt文件，预训练模型，训练模型保存
 
 ### 环境
 这里用的是aistudio，paddlepaddle-2.1.2
