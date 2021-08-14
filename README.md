@@ -12,6 +12,11 @@ PaddlePaddle 复现 Detecting Text in Natural Image with Connectionist Text Prop
 |ctpn|55.66%|40.68%|47.00%|
 |ctpn_tail|64.48%|56.91%|60.46%|
 
+### 环境
+这里用的是aistudio，paddlepaddle-2.1.2
+这里提供了三个版本的vgg，一个是我torch转的,也是我训练用的[下载地址](https://pan.baidu.com/s/1g6aJB6IRgRlzOenG7rDF5g)(提取码:fxw6),下载好了，放在pre_model文件夹，第二个是paddlecls里面的，第三个paddle vision里的，可在models/ctpn.py自己打开注释更换。
+
+
 ### 参数说明
 |参数|类型|说明|
 |-|-|-|
