@@ -96,6 +96,11 @@ def main(args):
         loss_agg_list= []
         loss_dis_list = []
 
+    	val_result ={}
+        val_result['recall'] = 0
+        val_result['precision'] = 0
+        val_result['hmean'] = 0
+
         for batch_idx, (imgs, img_scales,im_shapes, gt_path_indexs,im_infos) in enumerate(train_loader):
             data_loader.get_random_train_size()
             image = toTensor(imgs)
@@ -172,8 +177,10 @@ def main(args):
                    loss4=np.mean(loss_refine_list), lr=scheduler.get_lr()))
         log_write.append([np.mean(loss_total_list),np.mean(loss_cls_list),np.mean(loss_ver_list),np.mean(loss_refine_list),scheduler.get_lr()])
         print('recall:'+str(val_result['recall']),'precision:'+str(val_result['precision']),'hmean:'+str(val_result['hmean']))
+        print('best_hmean:'+str(best_hmean))
         print('-------------------------------------------------------------------------------------------------------')
         log_write.set_split(['val result:','---------->','recall:'+str(val_result['recall'])+'\t','precision:'+str(val_result['precision'])+'\t','hmean:'+str(val_result['hmean'])])
+        log_write.set_split(['val result:','---------->','best_hmean:'+str(best_hmean),'----------','--------'])
         log_write.set_split(['---------','----------','--------','----------','--------'])
         if(epoch % args.epoch_save==0 and epoch!=0):
             paddle.save(model.state_dict(),os.path.join(args.checkpoint, 'ctpn_' + str(epoch) + '.pdparams'))

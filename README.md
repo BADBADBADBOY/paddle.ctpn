@@ -18,7 +18,8 @@ PaddlePaddle 复现 Detecting Text in Natural Image with Connectionist Text Prop
 
 ### 环境
 这里用的是aistudio，paddlepaddle-2.1.2
-这里提供了三个版本的vgg，一个是我torch转的,也是我训练用的[下载地址](https://pan.baidu.com/s/1g6aJB6IRgRlzOenG7rDF5g)(提取码:fxw6),下载好了，放在pre_model文件夹，第二个是paddlecls里面的，第三个paddle vision里的，可在models/ctpn.py自己打开注释更换。
+这里提供了三个版本的vgg，一个是我torch转的,也是我训练用的[下载地址](https://pan.baidu.com/s/1ut4VeSJw6w5AKsuC62WRlw)(提取码:fxw6),下载好了，放在pre_model文件夹，第二个是paddlecls里面的，第三个paddle vision里的，可在models/ctpn.py自己打开注释更换。
+这里提供了俩种的bestmodel[下载地址](https://pan.baidu.com/s/1ut4VeSJw6w5AKsuC62WRlw)(提取码:fxw6)
 
 需要编译下nms和计算iou的函数
 ```
@@ -51,9 +52,13 @@ sh make.sh
 
 ### 训练
 
+设置训练图片的路径，在这里20-22行[位置](./dataLoader/dataLoad.py)
+
 ```
 python3 train.py --batch_size 8 --lr 0.08 --val_dir /src/icdar2015/test_img --val_gt_path /src/icdar2015/test_gt
 ```
+
+ 设置训练图片的路径，在这里20-22行[位置](./dataLoader/dataLoad_tail.py)
 
 ```
 python3 train_tail.py --batch_size 8 --lr 0.08 --val_dir /src/icdar2015/test_img --val_gt_path /src/icdar2015/test_gt
@@ -69,4 +74,16 @@ python3 train.py --batch_size 8 --lr 0.08 --val_dir /src/icdar2015/test_img --va
 
 ```
 python3 train_tail.py --batch_size 8 --lr 0.08 --val_dir /src/icdar2015/test_img --val_gt_path /src/icdar2015/test_gt --restore True --restore_epoch 12
+```
+
+### infer
+
+进文件设置好路径后，运行：
+
+```
+python3 inference.py 
+```
+
+```
+python3 inference_tail.py 
 ```
