@@ -183,7 +183,7 @@ def main(args):
         print('best_hmean:'+str(best_hmean))
         print('-------------------------------------------------------------------------------------------------------')
         log_write.set_split(['val result:','-----','----->','recall:'+str(val_result['recall'])+'\t','precision:'+str(val_result['precision'])+'\t','hmean:'+str(val_result['hmean'])])
-        log_write.set_split(['val result:','---------->','best_hmean:'+str(best_hmean),'----------','--------'])
+        log_write.set_split(['val result:','------','---->','best_hmean:'+str(best_hmean),'----------','--------'])
         log_write.set_split(['---------','----------','--------','----------','--------','--------'])
         if(epoch % args.epoch_save==0 and epoch!=0):
             paddle.save(model.state_dict(),os.path.join(args.checkpoint, 'ctpn_' + str(epoch) + '.pdparams'))
