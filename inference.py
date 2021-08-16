@@ -35,7 +35,7 @@ def rotate(img, angle):
     img_rotation = cv2.warpAffine(img, rotation_matrix, (h, w))
     return img_rotation
 
-def resize_image(img,min_size=2000,color=(0,0,0)):
+def resize_image(img,min_size=1200,color=(0,0,0)):
     
     img_size = img.shape
     im_size_min = np.min(img_size[0:2])
